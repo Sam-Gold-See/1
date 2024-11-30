@@ -5,7 +5,6 @@
 Sudoku::Sudoku()
 {
     initSudokuBoard();
-    Utils::initUtils();
     generateSudoku();
 }
 
@@ -63,13 +62,12 @@ void Sudoku::generateSudoku()
     int digCount = Level::digCount;
     while (digCount)
     {
-        int x = Utils::getRand(5,4);
-        int y = Utils::getRand(5,4);
+        int x = Utils::getRand(4,4);
+        int y = Utils::getRand(4,4);
         sudokuBoard[x][y] = 0;
         digCount--;
     }
     Utils::printBoard(sudokuBoard);
-    Utils::printBoard(sudokuAnswer);
 }
 
 bool Sudoku::checkSudoku()
