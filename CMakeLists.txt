@@ -14,15 +14,19 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         Main.cpp
-        src/Widget.cpp
-        include/Widget.h
-        src/Widget.ui
+        include/MainWindow.h
+        include/GameWindow.h
+        src/MainWindow.cpp
+        ui/MainWindow.ui
+        src/GameWindow.cpp
+        ui/GameWindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Sudoku
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+            include/GameWindow.h src/GameWindow.cpp ui/GameWindow.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Sudoku APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
