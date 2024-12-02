@@ -25,7 +25,299 @@
   <property name="windowTitle">
    <string>Soduku-MainWindow</string>
   </property>
+  <widget class="QPushButton" name="buttonLove">
+   <property name="geometry">
+    <rect>
+     <x>1178</x>
+     <y>18</y>
+     <width>78</width>
+     <height>78</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>78</width>
+     <height>78</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>78</width>
+     <height>78</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonLove.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonIntro">
+   <property name="geometry">
+    <rect>
+     <x>1178</x>
+     <y>624</y>
+     <width>78</width>
+     <height>78</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>78</width>
+     <height>78</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>78</width>
+     <height>78</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonIntro.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonStart">
+   <property name="geometry">
+    <rect>
+     <x>462</x>
+     <y>294</y>
+     <width>355</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonStart.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonBackground">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1280</width>
+     <height>720</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1280</width>
+     <height>720</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonBackground.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonIntroText">
+   <property name="geometry">
+    <rect>
+     <x>193</x>
+     <y>96</y>
+     <width>894</width>
+     <height>529</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>894</width>
+     <height>529</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>894</width>
+     <height>529</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonIntroText.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonLoveText">
+   <property name="geometry">
+    <rect>
+     <x>193</x>
+     <y>96</y>
+     <width>894</width>
+     <height>529</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>894</width>
+     <height>529</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>894</width>
+     <height>529</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonLoveText.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonModeEasy">
+   <property name="geometry">
+    <rect>
+     <x>462</x>
+     <y>491</y>
+     <width>355</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonModeEasy.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonModeNormal">
+   <property name="geometry">
+    <rect>
+     <x>462</x>
+     <y>491</y>
+     <width>355</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonModeNormal.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonModeHard">
+   <property name="geometry">
+    <rect>
+     <x>462</x>
+     <y>491</y>
+     <width>355</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonModeHard.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonModeHell">
+   <property name="geometry">
+    <rect>
+     <x>462</x>
+     <y>491</y>
+     <width>355</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>355</width>
+     <height>101</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonModeHell.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>buttonBackground</zorder>
+  <zorder>buttonLove</zorder>
+  <zorder>buttonIntro</zorder>
+  <zorder>buttonStart</zorder>
+  <zorder>buttonModeEasy</zorder>
+  <zorder>buttonModeNormal</zorder>
+  <zorder>buttonModeHard</zorder>
+  <zorder>buttonModeHell</zorder>
+  <zorder>buttonLoveText</zorder>
+  <zorder>buttonIntroText</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="../MainWindowResources.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -1,0 +1,15 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file>resources/MainWindow/buttonBackground.png</file>
+        <file>resources/MainWindow/buttonStart.png</file>
+        <file>resources/MainWindow/buttonLove.png</file>
+        <file>resources/MainWindow/buttonIntro.png</file>
+        <file>resources/MainWindow/buttonIntroText.png</file>
+        <file>resources/MainWindow/buttonLoveText.png</file>
+        <file>resources/MainWindow/buttonModeEasy.png</file>
+        <file>resources/MainWindow/buttonModeNormal.png</file>
+        <file>resources/MainWindow/buttonModeHard.png</file>
+        <file>resources/MainWindow/buttonModeHell.png</file>
+    </qresource>
+</RCC>
