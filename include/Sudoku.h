@@ -14,6 +14,7 @@ private:
     std::vector<int> rowUsed; //记录行的存入数据
     std::vector<int> colUsed; //记录列的存入数据
     std::vector<int> blockUsed; //记录宫的存入数据
+    std::vector<std::pair<int, int>> emptySite;//
 
 public:
     Sudoku(); //Sudoku类的默认构造函数
@@ -37,6 +38,8 @@ public:
     int getSudokuNumber(int row, int col); //获取数独棋盘的数字
     bool setSudokuNumber(int value, int row, int col); //把数字填入数独棋盘，并检查是否违反数独规则
     void deleteSudokuNumber(int row, int col); //把填入的数字删除
+
+    Board DFS(int pos);
 };
 
 #endif // SUDOKU_H

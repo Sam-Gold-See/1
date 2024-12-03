@@ -9,8 +9,7 @@ Sudoku::Sudoku()
 }
 
 Sudoku::~Sudoku()
-{
-}
+= default;
 
 void Sudoku::setSudokuBoard(Board board)
 {
@@ -40,13 +39,18 @@ void Sudoku::initSudokuBoard()
     rowUsed.resize(BOARDSIZE);
     colUsed.resize(BOARDSIZE);
     blockUsed.resize(BOARDSIZE);
+    emptySite.resize(0);
 }
 
 void Sudoku::initSudokuStatus()
 {
-    rowUsed.clear();
-    colUsed.clear();
-    blockUsed.clear();
+    for (int i = 0; i < BOARDSIZE; i++)
+    {
+        rowUsed[i] = 0;
+        colUsed[i] = 0;
+        blockUsed[i] = 0;
+    }
+    emptySite.resize(0);
 }
 
 void Sudoku::generateSudoku()
@@ -95,13 +99,18 @@ void Sudoku::updateSudokuStatus(int row, int col, int digit)
 
 Board Sudoku::solveSudoku()
 {
+    initSudokuStatus();
     for (int row = 0; row < BOARDSIZE; row++)
     {
         for (int col = 0; col < BOARDSIZE; col++)
         {
+            if (sudokuBoard[row][col] == 0)
+                emptySite.emplace_back(row, col);
+            else
+                updateSudokuStatus(row, col, sudokuBoard[row][col]);
         }
     }
-    return sudokuAnswer;
+    return DFS(0);
 }
 
 int Sudoku::getSudokuNumber(int row, int col)
@@ -111,8 +120,6 @@ int Sudoku::getSudokuNumber(int row, int col)
 
 bool Sudoku::setSudokuNumber(int value, int row, int col)
 {
-    if (sudokuQuestion[row][col] != 0)
-        return false;
     sudokuBoard[row][col] = value;
     return checkSudoku();
 }
@@ -121,4 +128,25 @@ void Sudoku::deleteSudokuNumber(int row, int col)
 {
     if (sudokuQuestion[row][col] == 0)
         sudokuBoard[row][col] = 0;
+}
+
+Board Sudoku::DFS(int pos)
+{
+    if (pos == emptySite.size())
+        return sudokuBoard;
+    int row = emptySite[pos].first;
+    int col = emptySite[pos].second;
+    for (int i = 1; i <= BOARDSIZE; i++)
+    {
+        int digit = sudokuBoard[row][col];
+        if ((rowUsed[row] | colUsed[col] | blockUsed[row / 3 * 3 + col / 3]) & (1 << digit))
+        {
+            sudokuBoard[row][col] = digit;
+            updateSudokuStatus(row, col, digit);
+            DFS(pos + 1);
+            updateSudokuStatus(row, col, digit);
+            sudokuBoard[row][col] = 0;
+        }
+    }
+    return sudokuAnswer;
 }

@@ -2,12 +2,13 @@
 #define GAMEWINDOW_H
 
 #include "../include/Sudoku.h"
+#include "../include/Operation.h"
 
-#include <QWidget>
 #include <QTableWidgetItem>
 
-namespace Ui {
-class GameWindow;
+namespace Ui
+{
+    class GameWindow;
 }
 
 class GameWindow : public QWidget
@@ -15,8 +16,8 @@ class GameWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit GameWindow(QWidget *parent = nullptr);
-    ~GameWindow();
+    explicit GameWindow(QWidget* parent = nullptr);
+    ~GameWindow() override;
 
 private slots:
     void on_button1_clicked();
@@ -49,17 +50,21 @@ private slots:
 
     void on_buttonAnswer_clicked();
 
+    void on_numberKeyPressed(int number);
+
 private:
-    Ui::GameWindow *ui;
+    Ui::GameWindow* ui;
 
     Sudoku sudoku;
+    Operation operationList;
+
     int rowActive = -1;
     int colActive = -1;
 
-    void initBoard();//
-    void updateBoard(int value);//
+    void initBoard(); //
+    void updateBoard(int value, int row, int col); //
 
-    QTableWidgetItem* initQTableWidgetItem(int value, bool isTrue);
+    static QTableWidgetItem* initQTableWidgetItem(int value, bool isTrue);
 };
 
 #endif // GAMEWINDOW_H

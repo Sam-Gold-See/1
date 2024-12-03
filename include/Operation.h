@@ -8,6 +8,7 @@ struct operation
     int row;
     int col;
     int value;
+    bool isTrue;
 };
 
 class Operation
@@ -19,7 +20,7 @@ public:
     Operation();
     ~Operation();
 
-    void pushOperation(int row, int col, int value);//
+    void pushOperation(int row, int col, int value, bool isTrue);//
     operation popOperation();//
 };
 
