@@ -8,7 +8,7 @@ typedef std::vector<std::vector<int>> Board; //用于表示数独棋盘的二维
 class Utils
 {
 public:
-    static void initUtils(); //初始化Utils类
+    static void initUtils(); //初始化Utils类，将当前时间传入作为随机数种子
     static int getRand(int mid, int range); //生成一个指定范围的随机数
     static std::vector<int> getRandSequence(); //生成由1-9组成的随机序列
     static void printBoard(const Board& board); //打印棋盘类数据
