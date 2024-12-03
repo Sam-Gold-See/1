@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget* parent)
     : QWidget(parent)
       , ui(new Ui::MainWindow)
 {
-    setWindowIcon(QIcon("../resources/LOGO.ico"));
+    setWindowIcon(QIcon(":/resources/LOGO.ico"));
 
     ui->setupUi(this);
 

@@ -11,5 +11,6 @@
         <file>resources/MainWindow/buttonModeNormal.png</file>
         <file>resources/MainWindow/buttonModeHard.png</file>
         <file>resources/MainWindow/buttonModeHell.png</file>
+        <file>resources/LOGO.ico</file>
     </qresource>
 </RCC>
