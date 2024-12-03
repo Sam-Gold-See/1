@@ -12,14 +12,9 @@ Sudoku::~Sudoku()
 {
 }
 
-void Sudoku::setSudokuBoard(Board sudokuBoard)
+void Sudoku::setSudokuBoard(Board board)
 {
-    this->sudokuBoard = Board(sudokuBoard);
-}
-
-void Sudoku::setSudokuAnswer(Board sudokuAnswer)
-{
-    this->sudokuAnswer = Board(sudokuAnswer);
+    this->sudokuBoard = Board(board);
 }
 
 Board Sudoku::getSudokuBoard()
@@ -32,10 +27,16 @@ Board Sudoku::getSudokuAnswer()
     return this->sudokuAnswer;
 }
 
+Board Sudoku::getSudokuQuestion()
+{
+    return this->sudokuQuestion;
+}
+
 void Sudoku::initSudokuBoard()
 {
     sudokuBoard = Board(BOARDSIZE, std::vector<int>(BOARDSIZE, 0));
     sudokuAnswer = Board(BOARDSIZE, std::vector<int>(BOARDSIZE, 0));
+    sudokuQuestion = Board(BOARDSIZE, std::vector<int>(BOARDSIZE, 0));
     rowUsed.resize(BOARDSIZE);
     colUsed.resize(BOARDSIZE);
     blockUsed.resize(BOARDSIZE);
@@ -62,12 +63,12 @@ void Sudoku::generateSudoku()
     int digCount = Level::digCount;
     while (digCount)
     {
-        int x = Utils::getRand(4,4);
-        int y = Utils::getRand(4,4);
+        int x = Utils::getRand(4, 4);
+        int y = Utils::getRand(4, 4);
         sudokuBoard[x][y] = 0;
         digCount--;
     }
-    Utils::printBoard(sudokuBoard);
+    sudokuQuestion = Board(sudokuBoard);
 }
 
 bool Sudoku::checkSudoku()
@@ -90,4 +91,34 @@ void Sudoku::updateSudokuStatus(int row, int col, int digit)
     rowUsed[row] ^= (1 << digit);
     colUsed[col] ^= (1 << digit);
     blockUsed[row / 3 * 3 + col / 3] ^= (1 << digit);
+}
+
+Board Sudoku::solveSudoku()
+{
+    for (int row = 0; row < BOARDSIZE; row++)
+    {
+        for (int col = 0; col < BOARDSIZE; col++)
+        {
+        }
+    }
+    return sudokuAnswer;
+}
+
+int Sudoku::getSudokuNumber(int row, int col)
+{
+    return sudokuBoard[row][col];
+}
+
+bool Sudoku::setSudokuNumber(int value, int row, int col)
+{
+    if (sudokuQuestion[row][col] != 0)
+        return false;
+    sudokuBoard[row][col] = value;
+    return checkSudoku();
+}
+
+void Sudoku::deleteSudokuNumber(int row, int col)
+{
+    if (sudokuQuestion[row][col] == 0)
+        sudokuBoard[row][col] = 0;
 }

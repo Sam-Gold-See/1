@@ -16,59 +16,72 @@ set(PROJECT_SOURCES
         Main.cpp
         include/MainWindow.h
         include/GameWindow.h
+        include/Sudoku.h
+        include/Level.h
+        include/Utils.h
+        include/Operation.h
+
+        src/Sudoku.cpp
+        src/Level.cpp
+        src/Utils.cpp
         src/MainWindow.cpp
-        ui/MainWindow.ui
         src/GameWindow.cpp
+        src/Operation.cpp
+
+        ui/MainWindow.ui
         ui/GameWindow.ui
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+if (${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Sudoku
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
+            MANUAL_FINALIZATION
+            ${PROJECT_SOURCES}
             include/GameWindow.h src/GameWindow.cpp ui/GameWindow.ui
+            MainWindowResources.qrc
+            GameWindowResources.qrc
+
     )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Sudoku APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
-else()
-    if(ANDROID)
+    # Define target properties for Android with Qt 6 as:
+    #    set_property(TARGET Sudoku APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+    #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
+    # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
+else ()
+    if (ANDROID)
         add_library(Sudoku SHARED
-            ${PROJECT_SOURCES}
+                ${PROJECT_SOURCES}
         )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
+        # Define properties for Android with Qt 5 after find_package() calls as:
+        #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+    else ()
         add_executable(Sudoku
-            ${PROJECT_SOURCES}
+                ${PROJECT_SOURCES}
         )
-    endif()
-endif()
+    endif ()
+endif ()
 
 target_link_libraries(Sudoku PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Sudoku)
-endif()
+if (${QT_VERSION} VERSION_LESS 6.1.0)
+    set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Sudoku)
+endif ()
 set_target_properties(Sudoku PROPERTIES
-    ${BUNDLE_ID_OPTION}
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
+        ${BUNDLE_ID_OPTION}
+        MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+        MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+        MACOSX_BUNDLE TRUE
+        WIN32_EXECUTABLE TRUE
 )
 
 include(GNUInstallDirs)
 install(TARGETS Sudoku
-    BUNDLE DESTINATION .
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        BUNDLE DESTINATION .
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
+if (QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(Sudoku)
-endif()
+endif ()
