@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     ui->buttonIntroText->setVisible(false);
     ui->buttonLoveText->setVisible(false);
+    ui->buttonLogoPressed->setVisible(false);
 
     Utils::initUtils();
 
@@ -56,10 +57,12 @@ void MainWindow::on_buttonIntroText_clicked() const
     ui->buttonIntroText->setVisible(false);
 }
 
-void MainWindow::on_buttonBackground_clicked() const
+void MainWindow::on_buttonBackground_clicked()
 {
     ui->buttonLoveText->setVisible(false);
     ui->buttonIntroText->setVisible(false);
+    ui->buttonLogoPressed->setVisible(false);
+    ui->buttonLogo->setVisible(true);
 }
 
 void MainWindow::on_buttonModeHell_clicked()
@@ -157,3 +160,16 @@ void MainWindow::moveButtonModeSeparately() const
     ui->buttonModeHard->move(280, 570);
     ui->buttonModeHell->move(645, 570);
 }
+
+void MainWindow::on_buttonLogo_clicked()
+{
+    ui->buttonLogo->setVisible(false);
+    ui->buttonLogoPressed->setVisible(true);
+}
+
+void MainWindow::on_buttonLogoPressed_clicked()
+{
+    ui->buttonLogo->setVisible(true);
+    ui->buttonLogoPressed->setVisible(false);
+}
+

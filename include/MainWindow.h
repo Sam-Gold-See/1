@@ -31,7 +31,7 @@ private slots:
 
     void on_buttonIntroText_clicked() const;
 
-    void on_buttonBackground_clicked() const;
+    void on_buttonBackground_clicked();
 
     void on_buttonModeHell_clicked();
 
@@ -47,10 +47,15 @@ private slots:
 
     void moveButtonModeSeparately() const;
 
+    void on_buttonLogo_clicked();
+
+    void on_buttonLogoPressed_clicked();
+
 private:
     Ui::MainWindow* ui;
     bool selectFlag;
     const int togetherX = 462;
     const int togetherY = 491;
+
 };
 #endif // MAINWINDOW_H

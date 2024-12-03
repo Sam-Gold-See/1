@@ -305,6 +305,50 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="buttonLogo">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>15</y>
+     <width>138</width>
+     <height>144</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>138</width>
+     <height>144</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>138</width>
+     <height>144</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonLogo.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonLogoPressed">
+   <property name="geometry">
+    <rect>
+     <x>295</x>
+     <y>0</y>
+     <width>690</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/MainWindow/buttonLogoPressed.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>buttonBackground</zorder>
   <zorder>buttonLove</zorder>
   <zorder>buttonIntro</zorder>
@@ -315,9 +359,9 @@
   <zorder>buttonModeHell</zorder>
   <zorder>buttonLoveText</zorder>
   <zorder>buttonIntroText</zorder>
+  <zorder>buttonLogo</zorder>
+  <zorder>buttonLogoPressed</zorder>
  </widget>
- <resources>
-  <include location="../MainWindowResources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
