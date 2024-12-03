@@ -232,5 +232,14 @@ void GameWindow::updateLCD()
 {
     timeCounter++;
 
-    ui->lcdTime->display(timeCounter);
+    int hours = timeCounter / 3600;
+    int minutes = timeCounter % 3600 /60;
+    int seconds = timeCounter %60;
+
+    QString timeString = QString("%1:%2:%3")
+        .arg(hours, 2, 10, QLatin1Char('0'))
+        .arg(minutes,2,10,QLatin1Char('0'))
+        .arg(seconds,2,10,QLatin1Char('0'));
+
+    ui->lcdTime->display(timeString);
 }
