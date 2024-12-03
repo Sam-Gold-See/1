@@ -14,6 +14,7 @@ GameWindow::GameWindow(QWidget* parent)
     setWindowIcon(QIcon(":/resources/LOGO.ico"));
 
     ui->setupUi(this);
+
     initBoard();
 
     for (int i = 1; i <= 9; ++i)

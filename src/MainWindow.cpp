@@ -4,9 +4,6 @@
 #include "../include/Utils.h"
 #include "../include/Level.h"
 
-#include <iostream>
-#include <QDebug>
-
 MainWindow::MainWindow(QWidget* parent)
     : QWidget(parent)
       , ui(new Ui::MainWindow)

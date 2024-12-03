@@ -65,12 +65,15 @@ void Sudoku::generateSudoku()
     Utils::boardChangeCopy(sudokuBoard, false, 3, 6);
     sudokuAnswer = Board(sudokuBoard);
     int digCount = Level::digCount;
+
     while (digCount)
     {
         int x = Utils::getRand(4, 4);
         int y = Utils::getRand(4, 4);
-        sudokuBoard[x][y] = 0;
+        if (sudokuBoard[x][y] == 0)
+            continue;
         digCount--;
+        sudokuBoard[x][y] = 0;
     }
     sudokuQuestion = Board(sudokuBoard);
 }
