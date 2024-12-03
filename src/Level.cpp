@@ -12,19 +12,19 @@ void Level::setLevel(int levelNumber)
     {
     case 2:
         digCount = Utils::getRand(37, 2);
-        levelName = "一般难度";
+        levelName = "buttonModeNormal";
         break;
     case 3:
         digCount = Utils::getRand(42, 2);
-        levelName = "困难难度";
+        levelName = "buttonModeHard";
         break;
     case 4:
         digCount = Utils::getRand(47, 2);
-        levelName = "地狱难度";
+        levelName = "buttonModeHell";
         break;
     default:
         digCount = Utils::getRand(32, 2);
-        levelName = "容易难度";
+        levelName = "buttonModeEasy";
         break;
     }
 }

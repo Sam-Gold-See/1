@@ -16,5 +16,9 @@
         <file>resources/GameWindow/buttonRestart.png</file>
         <file>resources/GameWindow/buttonRubber.png</file>
         <file>resources/GameWindow/buttonWithdraw.png</file>
+        <file>resources/GameWindow/buttonModeEasy.png</file>
+        <file>resources/GameWindow/buttonModeNormal.png</file>
+        <file>resources/GameWindow/buttonModeHard.png</file>
+        <file>resources/GameWindow/buttonModeHell.png</file>
     </qresource>
 </RCC>

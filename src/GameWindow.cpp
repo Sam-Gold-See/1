@@ -1,33 +1,48 @@
 #include "../include/GameWindow.h"
 #include "../include/Mainwindow.h"
 #include "../include/Utils.h"
+#include "../include/Level.h"
 #include "../include/Operation.h"
 #include "../ui/ui_GameWindow.h"
 
+#include <QTimer>
 #include <QShortcut>
 #include <QTableWidget>
 
 GameWindow::GameWindow(QWidget* parent)
     : QWidget(parent)
       , ui(new Ui::GameWindow)
+      , timeCounter(0)
 {
-    setWindowIcon(QIcon(":/resources/LOGO.ico"));
+    setWindowIcon(QIcon(":/resources/LOGO.ico")); //设置GameWindow窗口的任务栏、窗口图标
 
-    ui->setupUi(this);
+    ui->setupUi(this); //初始化通过QtDesigner生成的静态UI
 
-    initBoard();
+    initBoard(); //初始化棋盘对象（由于棋盘是会动态变化的，除了该棋盘和计时器之外，全用QtDesigner生成静态UI控件）
 
+    ui->labelModeLevel->setStyleSheet(
+        QString("QLabel{border-image: url(:/resources/GameWindow/%1.png);}").arg(
+            QString::fromStdString(Level::levelName)));
     for (int i = 1; i <= 9; ++i)
-    {
         new QShortcut(QKeySequence(QString::number(i)), this, [this, i]() { on_numberKeyPressed(i); },
-                      Qt::WidgetWithChildrenShortcut);
-    }
+                      Qt::WidgetWithChildrenShortcut); //绑定数字按键与相应按钮，设置接收键盘数字按键输出信号，实现双重触发
+
+    ui->lcdTime->setDigitCount(8);
+    ui->lcdTime->setMode(QLCDNumber::Dec);
+
+    timer = new QTimer(this);
+
+    connect(timer,SIGNAL(timeout()), this,SLOT(updateLCD()));
+
+    timer->start(1000);
 }
 
 GameWindow::~GameWindow()
 {
-    delete ui;
+    delete ui; //GameWindow窗口的析构函数，实现GameWindow窗口的销毁
 }
+
+//GameWindow窗口的按钮函数绑定
 
 void GameWindow::on_button1_clicked()
 {
@@ -74,7 +89,7 @@ void GameWindow::on_button9_clicked()
     updateBoard(9, rowActive, colActive);
 }
 
-void GameWindow::on_buttonWithdraw_clicked()
+void GameWindow::on_buttonWithdraw_clicked() //绑定
 {
     operation temp = operationList.popOperation();
     int row = temp.row;
@@ -102,6 +117,7 @@ void GameWindow::on_buttonRestart_clicked()
         if (temp.row == -1 && temp.col == -1)
             break;
     }
+    timeCounter = 0;
 }
 
 void GameWindow::on_buttonRubber_clicked()
@@ -197,7 +213,7 @@ QTableWidgetItem* GameWindow::initQTableWidgetItem(int value, bool isTrue)
 
     QFont font = item->font();
     font.setBold(true);
-    font.setPointSize(12);
+    font.setPointSize(28);
     item->setFont(font);
 
     if (!isTrue)
@@ -205,4 +221,16 @@ QTableWidgetItem* GameWindow::initQTableWidgetItem(int value, bool isTrue)
 
     item->setTextAlignment(Qt::AlignCenter);
     return item;
+}
+
+void GameWindow::on_buttonCommit_clicked()
+{
+    timer->stop();
+}
+
+void GameWindow::updateLCD()
+{
+    timeCounter++;
+
+    ui->lcdTime->display(timeCounter);
 }

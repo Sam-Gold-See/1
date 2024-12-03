@@ -305,7 +305,7 @@
   <widget class="QPushButton" name="buttonWithdraw">
    <property name="geometry">
     <rect>
-     <x>927</x>
+     <x>933</x>
      <y>394</y>
      <width>67</width>
      <height>67</height>
@@ -564,6 +564,42 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdTime">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>580</y>
+     <width>320</width>
+     <height>120</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelModeLevel">
+   <property name="geometry">
+    <rect>
+     <x>920</x>
+     <y>470</y>
+     <width>355</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonCommit">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>320</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>commit</string>
    </property>
   </widget>
  </widget>
