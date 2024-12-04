@@ -4,7 +4,7 @@
 //MainWindow窗口的初始静态UI需要Level对象的属性进行赋值，所以先初始化Level属性的值
 int Level::levelNum = 1;
 int Level::digCount = Utils::getRand(33, 2);
-std::string Level::levelName = "容易难度";
+std::string Level::levelName = "buttonModeEasy";
 
 void Level::setLevel(int levelNumber)//根据难度选择按钮返回的整数值，设置难度
 {
