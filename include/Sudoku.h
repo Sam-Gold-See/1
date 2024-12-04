@@ -14,7 +14,8 @@ private:
     std::vector<int> rowUsed; //记录行的存入数据
     std::vector<int> colUsed; //记录列的存入数据
     std::vector<int> blockUsed; //记录宫的存入数据
-    std::vector<std::pair<int, int>> emptySite;//
+    std::vector<std::pair<int, int>> emptySite; //用于DFS搜索时候存储发现的空缺位置
+    bool DFSFlag;
 
 public:
     Sudoku(); //Sudoku类的默认构造函数
@@ -25,7 +26,7 @@ public:
 
     void setSudokuBoard(Board board); //设置数独游戏的棋盘布局
     Board getSudokuBoard(); //获取数独游戏的当前棋盘布局
-    Board getSudokuAnswer(); //获取数独游戏的某个存在解
+    Board getSudokuAnswer(); //获取数独游戏的答案（DFS结果/某个存在解）
     Board getSudokuQuestion(); //获取数独游戏的初始棋盘布局
 
     void initSudokuBoard(); //初始化数独游戏
@@ -33,13 +34,13 @@ public:
     void generateSudoku(); //生成数独游戏棋盘
     bool checkSudoku(); //检查当前数独盘是否符合数独游戏规则
     void updateSudokuStatus(int row, int col, int digit); //更新数独的查询状态
-    Board solveSudoku(); //返回数独的解
+    bool checkEmptySite();//检查数独棋盘当前布局是否有空，并且将空位记录在emptySite中
 
     int getSudokuNumber(int row, int col); //获取数独棋盘的数字
     bool setSudokuNumber(int value, int row, int col); //把数字填入数独棋盘，并检查是否违反数独规则
     void deleteSudokuNumber(int row, int col); //把填入的数字删除
 
-    Board DFS(int pos);
+    Board DFS(int pos); //DFS函数搜索答案
 };
 
 #endif // SUDOKU_H
