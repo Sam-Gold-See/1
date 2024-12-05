@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget* parent)
     selectFlag = false; //初始化难度选择按钮的点击状态，默认为未点击状态隐藏，即false
     setButtonModeVisible(selectFlag); //设置四个难度按钮均隐藏
     moveButtonModeTogether(); //设置四个难度选择按钮重叠
+    Level::setLevel(1);
     ui->buttonModeEasy->setVisible(true); //默认初始为简单难度，简单难度按钮可见
 }
 
