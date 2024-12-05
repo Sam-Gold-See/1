@@ -362,6 +362,8 @@
   <zorder>buttonLogo</zorder>
   <zorder>buttonLogoPressed</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="../MainWindowResources.qrc"/>
+ </resources>
  <connections/>
 </ui>
