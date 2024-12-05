@@ -640,38 +640,95 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="labelBoardLine">
+  <widget class="QLabel" name="labelBoardRowLine1">
    <property name="geometry">
     <rect>
      <x>165</x>
-     <y>45</y>
+     <y>253</y>
      <width>630</width>
-     <height>630</height>
+     <height>4</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
      <width>630</width>
-     <height>630</height>
+     <height>4</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>630</width>
-     <height>630</height>
+     <height>4</height>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/resources/GameWindow/boardLine.png);</string>
+    <string notr="true">border-image: url(:/resources/GameWindow/boardRowLine.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelBoardRowLine2">
+   <property name="geometry">
+    <rect>
+     <x>165</x>
+     <y>463</y>
+     <width>630</width>
+     <height>4</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>630</width>
+     <height>4</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>630</width>
+     <height>4</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/resources/GameWindow/boardRowLine.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelBoradColLine1">
+   <property name="geometry">
+    <rect>
+     <x>373</x>
+     <y>45</y>
+     <width>4</width>
+     <height>630</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image:url(:/resources/GameWindow/boardColLine.png)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelBoradColLine1_2">
+   <property name="geometry">
+    <rect>
+     <x>583</x>
+     <y>45</y>
+     <width>4</width>
+     <height>630</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image:url(:/resources/GameWindow/boardColLine.png)</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="../MainWindowResources.qrc"/>
-  <include location="../GameWindowResources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
