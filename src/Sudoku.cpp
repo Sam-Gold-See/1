@@ -150,7 +150,7 @@ Board Sudoku::DFS(int pos) //DFS搜索，查询当前棋盘布局下的答案
     int row = emptySite[pos].first; //获取空位列表的行值
     int col = emptySite[pos].second; //获取空位列表的列值
     for (int digit = 1; digit <= BOARDSIZE; digit++) //遍历可填入的数字
-        if ((rowUsed[row] | colUsed[col] | blockUsed[row / 3 * 3 + col / 3]) & (1 << digit))//判断行列宫是否已有digit存在
+        if (!((rowUsed[row] | colUsed[col] | blockUsed[row / 3 * 3 + col / 3]) & (1 << digit)))//判断行列宫是否已有digit存在
         {
             sudokuBoard[row][col] = digit;//预填入sudokuBoard
             updateSudokuStatus(row, col, digit);//更新填入的查询状态

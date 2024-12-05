@@ -249,7 +249,11 @@ void GameWindow::on_buttonCommit_clicked() // 响应提交按钮点击事件的�
     if (sudoku.checkSudoku() && sudoku.checkEmptySite()) // 检查数独游戏是否正确完成，并且没有空位
         ui->labelCorrect->setVisible(true); // 如果数独游戏正确完成，显示正确标签
     else
+    {
+        sudoku.setSudokuBoard(sudoku.getSudokuAnswer()); //设置正确答案
+        initBoard();
         ui->labelWrong->setVisible(true); // 如果数独游戏有错误或者有空位，显示错误标签
+    }
     on_buttonAnswer_clicked();
 }
 
