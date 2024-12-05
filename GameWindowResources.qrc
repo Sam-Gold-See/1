@@ -23,5 +23,6 @@
         <file>resources/GameWindow/buttonCommit.png</file>
         <file>resources/GameWindow/labelCorrect.png</file>
         <file>resources/GameWindow/labelWrong.png</file>
+        <file>resources/GameWindow/boardLine.png</file>
     </qresource>
 </RCC>

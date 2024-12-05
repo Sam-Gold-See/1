@@ -115,14 +115,12 @@ void GameWindow::on_buttonRestart_clicked() //连接了重开按钮的信号与�
 {
     sudoku.setSudokuBoard(sudoku.getSudokuQuestion()); //将后台的sudokuBoard对象初始化为预先存储的问题布局
     initBoard(); //更新当前UI棋盘布局
-    timer->start(1000); //重置timer计时器重启
     while (true) //清空OperationList存储的值
     {
         operation temp = operationList.popOperation(); //循环pop出栈存储值
         if (temp.row == -1 && temp.col == -1) //直到pop出了违例数据，证明operation清空到了栈底
             break;
     }
-    timeCounter = 0; //清空timeCounter值
     ui->buttonWithdraw->setVisible(true); //设置撤回按钮的可见性为true
     ui->buttonCommit->setVisible(true); //设置提交按钮的可见性为true
     ui->buttonAnswer->setVisible(true); //设置显示答案按钮的可见性为true
