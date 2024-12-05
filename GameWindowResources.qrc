@@ -20,5 +20,8 @@
         <file>resources/GameWindow/buttonModeNormal.png</file>
         <file>resources/GameWindow/buttonModeHard.png</file>
         <file>resources/GameWindow/buttonModeHell.png</file>
+        <file>resources/GameWindow/buttonCommit.png</file>
+        <file>resources/GameWindow/labelCorrect.png</file>
+        <file>resources/GameWindow/labelWrong.png</file>
     </qresource>
 </RCC>
