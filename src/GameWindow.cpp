@@ -20,13 +20,11 @@ GameWindow::GameWindow(QWidget* parent)
 
     initBoard(); //初始化棋盘对象（由于棋盘是会动态变化的，除了该棋盘和计时器之外，全用QtDesigner生成静态UI控件）
 
-    ui->labelModeLevel->setStyleSheet(
-        QString("QLabel{border-image: url(:/resources/GameWindow/%1.png);}").arg(
-            QString::fromStdString(Level::levelName))); //设置显示难度按钮的图源名字，通过读取Level类中存储的levelName提供
-
     for (int i = 1; i <= 9; ++i)
         new QShortcut(QKeySequence(QString::number(i)), this, [this, i]() { on_numberKeyPressed(i); },
                       Qt::WidgetWithChildrenShortcut); //绑定数字按键与相应按钮，设置接收键盘数字按键输出信号，实现双重触发
+
+    setLabelModeLevel();
 
     ui->labelCorrect->setVisible(false); //设置正确结果弹窗的可见性为false
     ui->labelWrong->setVisible(false); //设置错误结果弹窗的可见性为true
@@ -252,6 +250,7 @@ void GameWindow::on_buttonCommit_clicked() // 响应提交按钮点击事件的�
         ui->labelCorrect->setVisible(true); // 如果数独游戏正确完成，显示正确标签
     else
         ui->labelWrong->setVisible(true); // 如果数独游戏有错误或者有空位，显示错误标签
+    on_buttonAnswer_clicked();
 }
 
 void GameWindow::updateLCD() //更新计时器
@@ -268,4 +267,11 @@ void GameWindow::updateLCD() //更新计时器
                          .arg(seconds, 2, 10, QLatin1Char('0'));
 
     ui->lcdTime->display(timeString); //连接LCD计数器和计时字符串
+}
+
+void GameWindow::setLabelModeLevel()
+{
+    ui->labelModeLevel->setStyleSheet(
+        QString("QLabel{border-image: url(:/resources/GameWindow/%1.png);}").arg(
+            QString::fromStdString(Level::levelName))); //设置显示难度按钮的图源名字，通过读取Level类中存储的levelName提供
 }

@@ -56,6 +56,8 @@ private slots:
 
     void updateLCD(); //更新LCD计时器时间
 
+    void setLabelModeLevel();//设置LabelModelLevel对象的样式
+
 private:
     Ui::GameWindow* ui;
 
